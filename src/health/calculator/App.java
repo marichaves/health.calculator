@@ -12,26 +12,24 @@ public class App {
 		 do {
 	            System.out.println("What do you want to do today? Enter the corresponding number:\n "
 	                    + "1 - Calculate BMI\n" 
-	                    + " 2 - Calculate daily calorie needs\n"
-	                    + " 3 - Calculate daily required protein amount\n"
-	                    + " 0 - Exit");
+	                    + "2 - Calculate daily calorie needs\n"
+	                    + "3 - Calculate daily required protein amount\n"
+	                    + "0 - Exit");
 
 	            calculator = scan.nextInt();
 
 	            if (calculator == 1) {
-	    			 BMI bmiCalculator = new BMI();;
-	    			break;
-	    		}
-	    		if (calculator == 2) {
-	    			System.out.println("Voce vai calcular o 1");
-	    			break;
-	    		}
-	    		if (calculator == 3) {
-	    			System.out.println("Voce vai calcular o 1");
-	    			break;
-	    		
+	                BMI bmiCalculator = new BMI();
+	            } else if (calculator == 2) {
+	                KcalNeeds calorieNeeds = new KcalNeeds();
+	            } else if (calculator == 3) {
+	                // Implement logic for protein calculation
+	            } else if (calculator == 0) {
+	                System.out.println("Exiting...");
+	            } else {
+	                System.out.println("Invalid option.");
 	            }
-	        } while (true);
+	        } while (calculator != 0);
 	}
 
 }
