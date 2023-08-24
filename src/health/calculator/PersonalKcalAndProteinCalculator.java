@@ -11,9 +11,26 @@ public class PersonalKcalAndProteinCalculator {
 
     public PersonalKcalAndProteinCalculator() {
         foodMap = new HashMap<>();
+      
+        
+        //Frutas
         foodMap.put("abacate", MyMenu.getFoodData("abacate", false)); // Use 100g data by default
+        foodMap.put("tomate", MyMenu.getFoodData("tomate", false)); 
+        foodMap.put("banana", MyMenu.getFoodData("banana", false)); 
+        foodMap.put("manga", MyMenu.getFoodData("manga", false)); 
+        foodMap.put("uva", MyMenu.getFoodData("uva", false)); 
+        foodMap.put("jaca", MyMenu.getFoodData("jaca", false)); 
+        foodMap.put("maça", MyMenu.getFoodData("maça", false)); 
+        
+        //Carnes 
+        foodMap.put("frango", MyMenu.getFoodData("frango", false));
+        foodMap.put("vaca", MyMenu.getFoodData("vaca", false));
+        foodMap.put("salmao", MyMenu.getFoodData("salmao", false));
+        foodMap.put("tilapia", MyMenu.getFoodData("tilapia", false));
+        foodMap.put("porco", MyMenu.getFoodData("porco", false));
+        //Others
         foodMap.put("iogurte", MyMenu.getFoodData("iogurte", false)); // Use 100g data by default
-        // Add more foods to the map as needed
+        
         
         System.out.println("What did you eat today? Add the name of the consumed food, followed by the quantity in grams. Press 0 to calculate.");
         while (true) {
