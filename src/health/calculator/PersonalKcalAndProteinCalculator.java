@@ -29,7 +29,9 @@ public class PersonalKcalAndProteinCalculator {
         foodMap.put("tilapia", MyMenu.getFoodData("tilapia", false));
         foodMap.put("porco", MyMenu.getFoodData("porco", false));
         //Others
-        foodMap.put("iogurte", MyMenu.getFoodData("iogurte", false)); // Use 100g data by default
+        foodMap.put("iogurte", MyMenu.getFoodData("iogurte", false)); 
+        foodMap.put("chocolate", MyMenu.getFoodData("chocolate", false)); 
+        
         
         
         System.out.println("What did you eat today? Add the name of the consumed food, followed by the quantity in grams. Press 0 to calculate.");
@@ -68,6 +70,9 @@ public class PersonalKcalAndProteinCalculator {
             System.out.println("Protein: " + protein + " g");
 
             scan.nextLine(); // Consume the newline character
+            //Do next:
+            //Colocar a parte da comida dentro de um loop e somar, sair do loop com o total da soma.
+            
         }
     }
 }
