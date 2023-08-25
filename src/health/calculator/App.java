@@ -14,7 +14,7 @@ public class App {
 	                    + "1 - Calculate BMI(Body Mass Index) \n" 
 	                    + "2 - Calculate daily calorie needs\n"
 	                    + "3 - Calculate daily required protein amount\n"
-	                    + "4 - o teu negócio \n"
+	                    + "4 - Calculate your calorie and protein intake (the menu is restricted to Brazilian foods and is also in Portuguese). \n"
 	                    + "0 - Exit");
 
 	            calculator = scan.nextInt();
@@ -26,7 +26,8 @@ public class App {
 	            } else if (calculator == 3) {
 	            	ProteinCalculator proteinCalculator = new ProteinCalculator();
 	            } else if (calculator == 4) {
-	            	PersonalKcalAndProteinCalculator personalKcalAndProteinCalculator = new PersonalKcalAndProteinCalculator();
+	            	PersonalKcalAndProteinCalculator calculatorDay = new PersonalKcalAndProteinCalculator();
+	                calculatorDay.calculate();
 	            } else if (calculator == 0) {
 	                System.out.println("Exiting...");
 	            } else {

@@ -11,69 +11,86 @@ public class PersonalKcalAndProteinCalculator {
 
     public PersonalKcalAndProteinCalculator() {
         foodMap = new HashMap<>();
-      
-        
-        //Frutas
-        foodMap.put("abacate", MyMenu.getFoodData("abacate", false)); // Use 100g data by default
-        foodMap.put("tomate", MyMenu.getFoodData("tomate", false)); 
-        foodMap.put("banana", MyMenu.getFoodData("banana", false)); 
-        foodMap.put("manga", MyMenu.getFoodData("manga", false)); 
-        foodMap.put("uva", MyMenu.getFoodData("uva", false)); 
-        foodMap.put("jaca", MyMenu.getFoodData("jaca", false)); 
-        foodMap.put("maça", MyMenu.getFoodData("maça", false)); 
-        
-        //Carnes 
+        foodMap.put("abacate", MyMenu.getFoodData("abacate", false));
+        foodMap.put("tomate cereja", MyMenu.getFoodData("tomate cereja", false));
+        foodMap.put("tomate holandês", MyMenu.getFoodData("tomate holandês", false));
+        foodMap.put("banana prata", MyMenu.getFoodData("banana prata", false));
+        foodMap.put("manga", MyMenu.getFoodData("manga", false));
+        foodMap.put("uva", MyMenu.getFoodData("uva", false));
+        foodMap.put("jaca", MyMenu.getFoodData("jaca", false));
+        foodMap.put("maçã", MyMenu.getFoodData("maçã", false)); 
+        foodMap.put("pequi", MyMenu.getFoodData("pequi", false));
+        foodMap.put("jatobá", MyMenu.getFoodData("jatobá", false));
+        foodMap.put("cagaita", MyMenu.getFoodData("cagaita", false));
+        foodMap.put("araçá", MyMenu.getFoodData("araçá", false));
+        foodMap.put("baru", MyMenu.getFoodData("baru", false));
+        foodMap.put("murici", MyMenu.getFoodData("murici", false));
+        foodMap.put("guavira", MyMenu.getFoodData("guavira", false));
+        foodMap.put("araticum", MyMenu.getFoodData("araticum", false));
         foodMap.put("frango", MyMenu.getFoodData("frango", false));
-        foodMap.put("vaca", MyMenu.getFoodData("vaca", false));
-        foodMap.put("salmao", MyMenu.getFoodData("salmao", false));
-        foodMap.put("tilapia", MyMenu.getFoodData("tilapia", false));
+        foodMap.put("carne de vaca", MyMenu.getFoodData("carne de vaca", false));
+        foodMap.put("salmão", MyMenu.getFoodData("salmão", false));
+        foodMap.put("tilápia", MyMenu.getFoodData("tilápia", false));
         foodMap.put("porco", MyMenu.getFoodData("porco", false));
-        //Others
-        foodMap.put("iogurte", MyMenu.getFoodData("iogurte", false)); 
-        foodMap.put("chocolate", MyMenu.getFoodData("chocolate", false)); 
+        foodMap.put("iogurte", MyMenu.getFoodData("iogurte", false));
+        foodMap.put("feijão", MyMenu.getFoodData("feijão", false));
+        foodMap.put("arroz", MyMenu.getFoodData("arroz", false));
+        foodMap.put("farofa", MyMenu.getFoodData("farofa", false));
+        foodMap.put("coxinha", MyMenu.getFoodData("coxinha", false));
+        foodMap.put("açaí", MyMenu.getFoodData("açaí", false));
+        foodMap.put("pastel", MyMenu.getFoodData("pastel", false));
+        foodMap.put("brigadeiro", MyMenu.getFoodData("brigadeiro", false));
+
         
-        
-        
-        System.out.println("What did you eat today? Add the name of the consumed food, followed by the quantity in grams. Press 0 to calculate.");
-        while (true) {
-            String food = scan.nextLine();
-            if (food.equals("0")) {
-                break;
-            }
-
-            int[] selectedFood = foodMap.get(food.toLowerCase());
-            if (selectedFood == null) {
-                System.out.println("Food not found in MyMenu or invalid choice.");
-                continue;
-            }
-
-            System.out.println("Choose an option for " + food + ":");
-            System.out.println("1. Calculate using Spoon");
-            System.out.println("2. Calculate using 100g");
-            int choice = scan.nextInt();
-            
-            if (choice != 1 && choice != 2) {
-                System.out.println("Invalid choice.");
-                continue;
-            }
-
-            boolean useSpoon = (choice == 1);
-            selectedFood = MyMenu.getFoodData(food.toLowerCase(), useSpoon);
-
-            System.out.print("Enter the quantity: ");
-            int quantity = scan.nextInt();
-
-            float kcal = (float) selectedFood[1] * quantity ;
-            float protein = (float) selectedFood[2] * quantity ;
-
-            System.out.println("Calories: " + kcal + " Kcal");
-            System.out.println("Protein: " + protein + " g");
-
-            scan.nextLine(); // Consume the newline character
-            //Do next:
-            //Colocar a parte da comida dentro de um loop e somar, sair do loop com o total da soma.
-            
-        }
     }
-}
+        
+        public void calculate() {
+            float totalKcal = 0;
+            float totalProtein = 0;
 
+            System.out.print("How many foods do you want to add? ");
+            int numFoods = scan.nextInt();
+            scan.nextLine(); // Consumir a quebra de linha após o próximo inteiro
+
+            for (int i = 1; i <= numFoods; i++) {
+                System.out.println("Food #" + i);
+                String food = scan.nextLine();
+
+                int[] selectedFood = foodMap.get(food.toLowerCase());
+                if (selectedFood == null) {
+                    System.out.println("Food not found in MyMenu or invalid choice.");
+                    continue;
+                }
+
+                System.out.println("Choose an option for " + food + ":");
+                System.out.println("1. Calculate using Spoon/ Fruta ou o gomo dela (ex: gomo de jaca) ");
+                System.out.println("2. Calculate using 100g");
+                int choice = scan.nextInt();
+
+                if (choice != 1 && choice != 2) {
+                    System.out.println("Invalid choice.");
+                    continue;
+                }
+
+                boolean useSpoon = (choice == 1);
+
+                System.out.print("Enter the quantity: ");
+                int quantity = scan.nextInt();
+
+                float kcal = (float) selectedFood[1] * quantity;
+                float protein = (float) selectedFood[2] * quantity;
+
+                System.out.println("Calories: " + kcal + " Kcal");
+                System.out.println("Protein: " + protein + " g");
+
+                totalKcal += kcal;
+                totalProtein += protein;
+
+                scan.nextLine(); // Consume the newline character
+            }
+
+            System.out.println("Total Calories: " + totalKcal + " Kcal");
+            System.out.println("Total Protein: " + totalProtein + " g");
+        }
+    
+}
