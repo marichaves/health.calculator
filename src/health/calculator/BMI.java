@@ -38,14 +38,7 @@ public class BMI {
             System.out.println("Your BMI is greater than 40, indicating Obesity class III.");
         }
         
-        System.out.println("Would you like to know more about BMI? Answer YES or NO\n"
-                + "If you want to return to the menu, press 0");
-        String knowMore = scan.nextLine();
-        if (knowMore.equalsIgnoreCase("YES")) {
-            System.out.println("More info");
-        } else {
-            System.out.println("Nothing");
-        }
+      
 
         
   }
